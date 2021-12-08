@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".implicit.ImplicitMainActivity">
+    <Button
+        android:id="@+id/button_web"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="启动Web浏览"/>
+    <Button
+        android:id="@+id/button_tel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="启动拨号"/>
+    <Button
+        android:id="@+id/button_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="自定义category启动"/>
+</LinearLayout>
