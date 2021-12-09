@@ -7,5 +7,6 @@ fun main(){
     //InterfaceTest_Go()
     //AccessTest_Go()
     //DataClassTest_Go()
-    SingletonClassTest_Go()
+    //SingletonClassTest_Go()
+    CompaionClassTest_Go()
 }
