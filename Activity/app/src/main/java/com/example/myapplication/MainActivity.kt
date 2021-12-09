@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        //menu的项点击时的处理
         when(item.itemId){
             R.id.add_item->Toast.makeText(this,"You clicked add_item",Toast.LENGTH_SHORT).show()
             R.id.remove_item->Toast.makeText(this,"You clicked remove_item",Toast.LENGTH_SHORT).show()
