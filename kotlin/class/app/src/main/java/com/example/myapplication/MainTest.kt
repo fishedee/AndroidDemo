@@ -8,5 +8,6 @@ fun main(){
     //AccessTest_Go()
     //DataClassTest_Go()
     //SingletonClassTest_Go()
-    CompaionClassTest_Go()
+    //CompaionClassTest_Go()
+    SealedClassTest_Go()
 }

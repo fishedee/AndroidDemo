@@ -5,5 +5,6 @@ fun main(){
     //FunctionTest_Go();
     //ConditionTest_Go()
     //LoopTest_Go()
-    OptionTest_Go()
+    //OptionTest_Go()
+    LateInitTest_Go()
 }
