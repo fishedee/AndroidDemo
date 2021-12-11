@@ -1,5 +1,8 @@
 package com.example.myapplication
 
+import java.io.BufferedOutputStream
+import java.io.FileOutputStream
+
 data class Person(private var name:String,private var age:Int){
     fun incAge(){
         this.age = this.age+1
@@ -61,10 +64,22 @@ fun apply_Go(){
     println("new Age ${newA}")
 }
 
+fun use_Go(){
+    val fo = FileOutputStream("data")
+    val bfo = BufferedOutputStream(fo)
+    //外层流关闭的时候，内层流就会关闭
+    //use会在闭包结束的时候自动调用close
+    bfo.use {
+        bfo.write("Hello".toByteArray())
+    }
+    bfo.close()
+}
+
 
 fun BuiltInLambdaTest_Go(){
     let_Go()
     with_Go()
     run_Go()
     apply_Go()
+    use_Go()
 }
