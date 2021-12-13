@@ -10,4 +10,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="File测试"/>
+    <Button
+        android:id="@+id/sqlTest"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SQLite测试"/>
 </LinearLayout>

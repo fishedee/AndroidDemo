@@ -15,6 +15,10 @@ class MainActivity : AppCompatActivity() {
             var intent = Intent(this,FileActivity::class.java)
             startActivity(intent)
         }
+        sqlTest.setOnClickListener {
+            var intent = Intent(this,SQLiteActivity::class.java)
+            startActivity(intent)
+        }
     }
 
 }
