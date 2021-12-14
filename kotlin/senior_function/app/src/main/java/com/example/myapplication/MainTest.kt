@@ -5,5 +5,6 @@ fun main(){
     //OperatorTest_Go()
     //HighOrderFunctionText_Go()
     //InlineFunctionTest_Go()
-    VarargFunctionTest_Go()
+    //VarargFunctionTest_Go()
+    InfixFunctionTest_Go()
 }
