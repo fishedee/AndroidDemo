@@ -40,7 +40,7 @@ fun TestCovariantGeneric(){
     animalTpl = dogTpl
     println("animalTpl ${animalTpl}")
 
-    //因为，能返回Animal类型的地方，肯定能返回Dog类型
+    //因为，能返回Animal类型的泛型的接口，肯定能接受，返回Dog类型的泛型的实现
 }
 
 
@@ -62,7 +62,7 @@ fun TestInvertvariantGeneric(){
     dogTpl = animalTpl
     println("animalTpl ${animalTpl}")
 
-    //因为，能接收Dog参数的地方，肯定能接收Animal参数
+    //因为，能接收Dog参数的泛型的接口，肯定能接受，能接收Animal参数的泛型的实现
 }
 
 
