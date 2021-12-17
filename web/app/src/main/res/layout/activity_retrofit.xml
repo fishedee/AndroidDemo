@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RetrofitActivity">
+    <Button
+        android:id="@+id/testGo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="go接口"/>
+    <Button
+        android:id="@+id/testGet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="get带query接口"/>
+    <Button
+        android:id="@+id/testPost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="post带body接口"/>
+    <TextView
+        android:id="@+id/showText"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+</LinearLayout>
