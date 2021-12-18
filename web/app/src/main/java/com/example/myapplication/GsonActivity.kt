@@ -16,6 +16,7 @@ class GsonActivity : AppCompatActivity() {
     init{
         val gsonBuilder = GsonBuilder()
         gsonBuilder.serializeNulls()
+        gsonBuilder.disableHtmlEscaping()
         gson = gsonBuilder.create()
     }
 
