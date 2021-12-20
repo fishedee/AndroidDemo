@@ -25,4 +25,29 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="FrameLayout测试"/>
+
+    <Button
+        android:id="@+id/constraint_layout_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="ConstraintLayout基础"/>
+    <Button
+        android:id="@+id/constraint_layout_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="ConstraintLayout链"/>
+    <Button
+        android:id="@+id/constraint_layout_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="ConstraintLayout布局辅助对象"/>
+    <Button
+        android:id="@+id/constraint_layout_4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="ConstraintLayout动态容器"/>
 </LinearLayout>

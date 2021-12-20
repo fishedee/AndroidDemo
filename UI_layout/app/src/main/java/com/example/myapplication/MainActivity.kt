@@ -26,6 +26,22 @@ class MainActivity : AppCompatActivity() {
             var intent = Intent(this,FrameLayoutActivity::class.java)
             startActivity(intent)
         }
+        constraint_layout_1.setOnClickListener {
+            var intent = Intent(this,ConstraintLayoutActivity::class.java)
+            startActivity(intent)
+        }
+        constraint_layout_2.setOnClickListener {
+            var intent = Intent(this,ConstraintLayoutActivity2::class.java)
+            startActivity(intent)
+        }
+        constraint_layout_3.setOnClickListener {
+            var intent = Intent(this,ConstraintLayoutActivity3::class.java)
+            startActivity(intent)
+        }
+        constraint_layout_4.setOnClickListener {
+            var intent = Intent(this,ConstraintLayoutActivity4::class.java)
+            startActivity(intent)
+        }
     }
 
 }
