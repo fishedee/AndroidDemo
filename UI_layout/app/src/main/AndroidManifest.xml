@@ -11,6 +11,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity
+            android:name=".ConstraintLayoutActivity4"
+            android:exported="false" />
+        <activity
+            android:name=".ConstraintLayoutActivity3"
+            android:exported="false" />
+        <activity
+            android:name=".ConstraintLayoutActivity2"
+            android:exported="false" />
+        <activity
+            android:name=".ConstraintLayoutActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LinearLayoutActivity2"
+            android:exported="false" />
+        <activity
             android:name=".FrameLayoutActivity"
             android:exported="false" />
         <activity

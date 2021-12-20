@@ -5,12 +5,16 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
     <Button
         android:id="@+id/linear_test"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="LinearLayout测试"/>
+    <Button
+        android:id="@+id/linear_test2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="LinearLayout测试2"/>
     <Button
         android:id="@+id/relative_test"
         android:layout_width="match_parent"
