@@ -27,6 +27,11 @@
         android:layout_height="wrap_content"
         android:text="ImageView测试"/>
     <Button
+        android:id="@+id/image_view_test2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ImageView测试2"/>
+    <Button
         android:id="@+id/progress_test"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

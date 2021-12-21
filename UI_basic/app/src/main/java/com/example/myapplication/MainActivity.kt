@@ -26,6 +26,10 @@ class MainActivity : AppCompatActivity() {
             var intent = Intent(this,ImageViewActivity::class.java)
             startActivity(intent)
         }
+        image_view_test2.setOnClickListener {
+            var intent = Intent(this,ImageViewActivity2::class.java)
+            startActivity(intent)
+        }
         progress_test.setOnClickListener {
             var intent = Intent(this,ProgressBarActivity::class.java)
             startActivity(intent)

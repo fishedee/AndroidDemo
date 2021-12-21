@@ -11,22 +11,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity
-            android:name=".ImageViewActivity2"
+            android:name=".HandlerEventActivity"
             android:exported="false" />
         <activity
-            android:name=".ProgressBarActivity"
+            android:name=".BubbleEventActivity"
             android:exported="false" />
         <activity
-            android:name=".ImageViewActivity"
-            android:exported="false" />
-        <activity
-            android:name=".EditTextActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ButtonActivity"
-            android:exported="false" />
-        <activity
-            android:name=".TextActivity"
+            android:name=".CallbackEventActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
