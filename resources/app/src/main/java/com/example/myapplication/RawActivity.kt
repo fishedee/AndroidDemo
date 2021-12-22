@@ -18,6 +18,9 @@ class RawActivity : AppCompatActivity() {
         //读取raw资源
         mediaPlayer1 = MediaPlayer.create(this,R.raw.a)
 
+        //raw资源不能用prepare
+        //mediaPlayer1.prepareAsync()
+
         //读取assets资源，获取FileDescriptor的方式
         val afd = resources.assets.openFd("b.mp3")
         mediaPlayer2 = MediaPlayer()

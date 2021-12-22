@@ -11,25 +11,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity
-            android:name=".ImageActivity3"
+            android:name=".ClipDrawable"
             android:exported="false" />
         <activity
-            android:name=".ImageViewActivity2"
+            android:name=".LayerableActivity"
             android:exported="false" />
         <activity
-            android:name=".ProgressBarActivity"
+            android:name=".StateListActivity"
             android:exported="false" />
         <activity
-            android:name=".ImageViewActivity"
-            android:exported="false" />
-        <activity
-            android:name=".EditTextActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ButtonActivity"
-            android:exported="false" />
-        <activity
-            android:name=".TextActivity"
+            android:name=".ShapeActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

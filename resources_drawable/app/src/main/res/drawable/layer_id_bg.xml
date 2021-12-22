@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--使用id来区分设置的是ProgressBar的哪一部份,background是ProgressBar的背景-->
+    <item android:id="@android:id/background"
+        android:drawable="@drawable/search2"/>
+    <!--progress是ProgressBar的进度-->
+    <item android:id="@android:id/progress"
+        android:drawable="@drawable/search3"/>
+</layer-list>
