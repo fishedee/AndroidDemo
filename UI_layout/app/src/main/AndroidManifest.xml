@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity
+            android:name=".LinearLayoutActivity3"
+            android:exported="false" />
+        <activity
             android:name=".ConstraintLayoutActivity4"
             android:exported="false" />
         <activity

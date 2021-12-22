@@ -18,6 +18,10 @@ class MainActivity : AppCompatActivity() {
             var intent = Intent(this,LinearLayoutActivity2::class.java)
             startActivity(intent)
         }
+        linear_test3.setOnClickListener {
+            var intent = Intent(this,LinearLayoutActivity3::class.java)
+            startActivity(intent)
+        }
         relative_test.setOnClickListener {
             var intent = Intent(this,RelativeLayoutActivity::class.java)
             startActivity(intent)
