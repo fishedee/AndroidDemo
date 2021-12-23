@@ -38,4 +38,20 @@
         android:background="@drawable/border"
         android:inputType="textPassword"
         android:text="文字,inputType=textPassword"/>
+    <com.example.myapplication.MyEditText
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/border"
+        android:imeOptions="actionSearch"
+        android:inputType="text"
+        android:maxLines="1"
+        android:text="imeOptions，需要配置inputType，最好也配置maxLines才能生效"/>
+    <com.example.myapplication.BarCodeEditText
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/border"
+        android:imeOptions="actionDone"
+        android:inputType="text"
+        android:maxLines="1"
+        android:text=""/>
 </LinearLayout>

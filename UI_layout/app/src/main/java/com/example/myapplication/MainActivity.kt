@@ -30,6 +30,10 @@ class MainActivity : AppCompatActivity() {
             var intent = Intent(this,FrameLayoutActivity::class.java)
             startActivity(intent)
         }
+        grid_layout_test.setOnClickListener {
+            var intent = Intent(this,GridLayoutActivity::class.java)
+            startActivity(intent)
+        }
         constraint_layout_1.setOnClickListener {
             var intent = Intent(this,ConstraintLayoutActivity::class.java)
             startActivity(intent)

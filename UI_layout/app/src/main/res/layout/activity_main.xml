@@ -30,7 +30,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="FrameLayout测试"/>
-
+    <Button
+        android:id="@+id/grid_layout_test"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="GridLayoutce测试"/>
     <Button
         android:id="@+id/constraint_layout_1"
         android:layout_width="match_parent"
