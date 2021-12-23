@@ -12,8 +12,7 @@ import androidx.appcompat.widget.AppCompatEditText
 
 class MyEditText(ctx:Context,attrs:AttributeSet) :AppCompatEditText(ctx,attrs){
 
-    override fun onAttachedToWindow() {
-        super.onAttachedToWindow()
+    init{
         this.setOnEditorActionListener { v, actionId, event ->
             if( actionId == EditorInfo.IME_ACTION_SEARCH){
                 Toast.makeText(this.context,"键盘的搜索按键",Toast.LENGTH_SHORT).show()
