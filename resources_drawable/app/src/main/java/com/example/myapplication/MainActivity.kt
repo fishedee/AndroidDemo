@@ -26,6 +26,14 @@ class MainActivity : AppCompatActivity() {
             var intent = Intent(this,ClipDrawable::class.java)
             startActivity(intent)
         }
+        inset_test.setOnClickListener {
+            var intent = Intent(this,InsetDrawable::class.java)
+            startActivity(intent)
+        }
+        single_border_test.setOnClickListener {
+            var intent = Intent(this,SingleBorderActivity::class.java)
+            startActivity(intent)
+        }
     }
 
 }

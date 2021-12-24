@@ -11,6 +11,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity
+            android:name=".SingleBorderActivity"
+            android:exported="false" />
+        <activity
+            android:name=".InsetDrawable"
+            android:exported="false" />
+        <activity
             android:name=".ClipDrawable"
             android:exported="false" />
         <activity

@@ -29,4 +29,16 @@
         android:layout_height="wrap_content"
         android:textAllCaps="false"
         android:text="Clip测试"/>
+    <Button
+        android:id="@+id/inset_test"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="Inset测试"/>
+    <Button
+        android:id="@+id/single_border_test"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="单边边框测试"/>
 </LinearLayout>
