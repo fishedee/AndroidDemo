@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="plain_arr">
+        <item>@color/black</item>
+        <item>@color/white</item>
+        <item>@color/real</item>
+    </array>
+    <string-array name="Books">
+        <item>DDIA</item>
+        <item>DDD架构</item>
+        <item>第一行安卓代码</item>
+    </string-array>
+</resources>
