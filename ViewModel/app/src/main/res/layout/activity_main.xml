@@ -20,4 +20,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="ViewModel测试，带协程"/>
+    <Button
+        android:id="@+id/viewModel4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ViewModel测试，官方实践"/>
 </LinearLayout>
