@@ -9,7 +9,7 @@ import java.lang.RuntimeException
 import kotlin.system.measureTimeMillis
 
 fun flowTest1(){
-    //闭合的输入，产生的闭合的输出
+    //闭环的输入，产生被动的输出
     //输入是一个闭包中产生的，输出是被动触发的。
     runBlocking {
         flow{
@@ -20,6 +20,19 @@ fun flowTest1(){
             println(v)
         }
     }
+    /*
+    输出如下：
+    1
+    2
+    3
+    4
+    5
+    6
+    7
+    8
+    9
+    10
+     */
 }
 
 fun flowTest2(){
@@ -38,10 +51,17 @@ fun flowTest2(){
         //每个数据是100ms+200ms=300ms，共需要900ms的时间
         println("time ${time} ms")
     }
+    /*
+    输出如下：
+    1
+    2
+    3
+    time 931 ms
+     */
 }
 
 fun flowTest3(){
-    //放在闭合输入，和输出的好处是
+    //放在闭环输入，和被动输出的好处是
     //当输入或者输出发生异常的时候，发射端和收集端都会自动退出，并清理相关资源
     runBlocking {
         try{
@@ -61,10 +81,17 @@ fun flowTest3(){
             e.printStackTrace()
         }
     }
+    /*
+    输出如下：
+    1
+    2
+    java.lang.RuntimeException: ee
+        at com.example.myapplication.scope.FlowTestKt$flowTest3$1$1.invokeSuspend(FlowTest.kt:72)
+     */
 }
 
 fun flowTest4(){
-    //放在闭合输入，和输出的另外一个好处是：
+    //放在闭环输入，和被动输出的另外一个好处是：
     //受到结构化并发的控制，能附带将整个发射端，和收集端都cancel掉
     runBlocking {
         val job = launch {
@@ -81,6 +108,10 @@ fun flowTest4(){
         delay(400)
         job.cancel()
     }
+    /*
+    输出如下：
+    1
+     */
 }
 
 

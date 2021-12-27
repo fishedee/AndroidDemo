@@ -7,7 +7,7 @@ import java.lang.RuntimeException
 import kotlin.system.measureTimeMillis
 
 fun flowAsSharedTest1(){
-    //flow.shareIn，和stateIn的特点在于，将单闭合输出，改为多闭合输出
+    //flow.shareIn，和stateIn的特点在于，将单被动输出，改为多被动输出
     //多个闭合输出之间，当flow发送某个数据的时候，所有collect都能收到同样的数据（订阅模式）
     //如果某个collect是延后才参与到flow的时候，它只会收到之后的数据（取决于relay参数）
     //如果某个collect是中途就退出到flow的时候，它就会丢掉部分数据，也不会堵塞flow的emit
@@ -48,6 +48,22 @@ fun flowAsSharedTest1(){
         delay(700)
         globalJob.cancel()
     }
+    /*
+    输出如下：
+    collect#1 1
+    shared#3 1
+    collect#1 2
+    shared#3 2
+    shared#2 2
+    collect#1 3
+    shared#2 3
+    collect#1 4
+    shared#2 4
+    collect#1 5
+    shared#2 5
+
+    Process finished with exit code 0
+     */
 }
 
 fun flowAsSharedTest1_2(){
@@ -85,6 +101,21 @@ fun flowAsSharedTest1_2(){
         delay(100)
         job.cancel()
     }
+    /*
+    输出如下：
+    collect#1 100
+    shared#3 100
+    collect#1 1
+    shared#2 1
+    collect#1 2
+    shared#2 2
+    collect#1 3
+    shared#2 3
+    collect#1 4
+    shared#2 4
+    collect#1 5
+    shared#2 5
+     */
 }
 
 fun flowAsSharedTest2(){
@@ -118,6 +149,13 @@ fun flowAsSharedTest2(){
         //总共用了200ms*3 = 600ms+100ms= 700ms，注意与channelTest2的不同
         println("all time ${time} ms")
     }
+    /*
+    输出如下：
+    1
+    2
+    3
+    all time 757 ms
+     */
 }
 
 fun flowAsSharedTest3(){
@@ -140,6 +178,12 @@ fun flowAsSharedTest3(){
             }
         }
     }
+    /*
+    输出如下：
+    1
+    2
+    Exception in thread "DefaultDispatcher-worker-1" java.lang.RuntimeException: ee
+     */
 }
 
 fun flowAsSharedTest4(){
@@ -168,6 +212,10 @@ fun flowAsSharedTest4(){
             job.cancel()
         }
     }
+    /*
+    输出如下
+    1
+     */
 }
 
 fun FlowAsSharedTest_Go() {

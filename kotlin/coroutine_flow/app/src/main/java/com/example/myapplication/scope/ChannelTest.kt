@@ -8,7 +8,7 @@ import java.lang.RuntimeException
 import kotlin.system.measureTimeMillis
 
 fun channelTest1(){
-    //Channel的区别是开放输入，开放输出
+    //Channel的区别是开环输入，主动输出
     //输入是允许在不同时机，不同闭包中产生的，输出是主动触发的。
     //发送和接收的地方可以在多个闭包里面，不同的协程里面都无所谓。
     //唯一的限制是，发送和接收都在线的时候，通信才会出现。任意一方缺失的时候，都会堵塞
@@ -33,6 +33,19 @@ fun channelTest1(){
             }
         }
     }
+    /*
+    输出如下：
+    1
+    11
+    2
+    3
+    12
+    4
+    5
+    13
+    14
+    15
+     */
 }
 
 fun channelTest2(){
@@ -60,10 +73,17 @@ fun channelTest2(){
         //Channel，send的返回只需要对方调用了receive就可以了，不需要等待对方完成receive的整个任务
         println("all time ${time} ms")
     }
+    /*
+    输出如下：
+    1
+    2
+    3
+    all time 622 ms
+     */
 }
 
 fun channelTest3(){
-    //放在开放输入，和开放输出的时候是
+    //开环输入，和主动输出的时候是
     //输入端的异常，不会让channel自动关闭，也不会让接收端知道异常而退出
     //Channel就像无法感知到异常发生了一样
     //两者独立运行
@@ -90,10 +110,31 @@ fun channelTest3(){
             chann.send(3)
         }
     }
+    /*
+    输出如下：
+    1
+    Exception in thread "main" java.lang.RuntimeException: ee
+        at com.example.myapplication.scope.ChannelTestKt$channelTest3$1$1$1.invokeSuspend(ChannelTest.kt:97)
+        at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+        at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:106)
+        at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:274)
+        at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:85)
+        at kotlinx.coroutines.BuildersKt__BuildersKt.runBlocking(Builders.kt:59)
+        at kotlinx.coroutines.BuildersKt.runBlocking(Unknown Source)
+        at kotlinx.coroutines.BuildersKt__BuildersKt.runBlocking$default(Builders.kt:38)
+        at kotlinx.coroutines.BuildersKt.runBlocking$default(Unknown Source)
+        at com.example.myapplication.scope.ChannelTestKt.channelTest3(ChannelTest.kt:90)
+        at com.example.myapplication.scope.ChannelTestKt.ChannelTest_Go(ChannelTest.kt:145)
+        at com.example.myapplication.MainTestKt.main(MainTest.kt:7)
+        at com.example.myapplication.MainTestKt.main(MainTest.kt)
+    2
+    3
+    finish success
+     */
 }
 
 fun channelTest4(){
-    //放在开放输入，和开放输出的时候是
+    //开环输入，和主动输出的时候是
     //对发射端的cancel，并不会触发接收端的cancel
     //两者独立运行
     runBlocking {
@@ -116,6 +157,13 @@ fun channelTest4(){
         //推送最后一个数据，通知接收端关闭
         chann.send(3)
     }
+    /*
+    输出如下：
+    1
+    2
+    3
+    finish success
+     */
 }
 
 
