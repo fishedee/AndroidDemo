@@ -38,7 +38,7 @@ class ViewModelActivity4 : AppCompatActivity() {
         }
 
         lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.STARTED){
+            whenStarted{
                 viewModel.effect.collect {
                     Toast.makeText(this@ViewModelActivity4,it,Toast.LENGTH_SHORT).show()
                 }

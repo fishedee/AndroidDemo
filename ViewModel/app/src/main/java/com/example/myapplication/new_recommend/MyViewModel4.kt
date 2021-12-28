@@ -7,6 +7,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.channels.Channel
+import kotlinx.coroutines.flow.buffer
 import kotlinx.coroutines.flow.receiveAsFlow
 
 class MyViewModel4 :ViewModel(){
@@ -18,7 +19,7 @@ class MyViewModel4 :ViewModel(){
     //副作用
     private val _effect:Channel<String> = Channel()
 
-    val effect = _effect.receiveAsFlow()
+    val effect = _effect.receiveAsFlow().buffer()
 
     fun inc(){
         viewModelScope.launch {
