@@ -16,6 +16,8 @@ fun channelAsFlowTest1(){
     runBlocking {
         var chan = Channel<Int>()
         val receiveFlow = chan.receiveAsFlow()
+        //没有collect的发送，发送会堵塞
+        //chan.send(100)
         launch{
             for( i in (1..5)){
                 chan.send(i)
@@ -49,6 +51,8 @@ fun channelAsFlowTest1_2(){
     runBlocking {
         var chan = Channel<Int>()
         val receiveFlow = chan.consumeAsFlow()
+        //没有collect的发送，发送会堵塞
+        //chan.send(123)
         launch{
             for( i in (1..5)){
                 chan.send(i)
@@ -187,8 +191,8 @@ fun channelAsFlowTest4(){
 }
 
 fun ChannelAsFlowTest_Go(){
-    channelAsFlowTest1()
-    //channelAsFlowTest1_2()
+    //channelAsFlowTest1()
+    channelAsFlowTest1_2()
     //channelAsFlowTest2()
     //channelAsFlowTest3()
     //channelAsFlowTest4()

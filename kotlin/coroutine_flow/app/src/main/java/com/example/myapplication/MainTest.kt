@@ -5,6 +5,6 @@ import com.example.myapplication.scope.*
 fun main(){
     //FlowTest_Go()
     //ChannelTest_Go()
-    //ChannelAsFlowTest_Go()
-    FlowAsSharedTest_Go()
+    ChannelAsFlowTest_Go()
+    //FlowAsSharedTest_Go()
 }
