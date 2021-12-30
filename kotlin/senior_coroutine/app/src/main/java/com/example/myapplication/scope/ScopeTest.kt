@@ -24,6 +24,34 @@ fun ScopeContextTest(){
     }
 }
 
+fun ScopeDispacherWithContext(){
+    runBlocking {
+        val go1 = {
+            println("current Id ${Thread.currentThread().id}")
+        }
+        for (i in (1..10)) {
+            launch {
+                withContext(Dispatchers.IO) {
+                    go1()
+                }
+            }
+        }
+    }
+    /*
+    输出结构如下：
+    current Id 12
+    current Id 13
+    current Id 16
+    current Id 14
+    current Id 16
+    current Id 17
+    current Id 15
+    current Id 18
+    current Id 14
+    current Id 17
+     */
+}
+
 fun ScopeDispacherTest(){
     //创建一个单线程的调度器
     val myDispatcher= Executors.newSingleThreadExecutor{ r -> Thread(r, "MyThread") }.asCoroutineDispatcher()
@@ -78,6 +106,7 @@ fun ScopeDispatcherTest2(){
 
 fun ScopeTest_Go(){
     //ScopeContextTest()
+    ScopeDispacherWithContext()
     //ScopeDispacherTest()
     //ScopeDispatcherTest2()
 }
