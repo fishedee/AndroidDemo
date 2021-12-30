@@ -16,6 +16,10 @@ class MainActivity : AppCompatActivity() {
             var intent = Intent(this,RoomActivity::class.java)
             startActivity(intent)
         }
+        liveDataTest2.setOnClickListener {
+            var intent = Intent(this,RoomActivity2::class.java)
+            startActivity(intent)
+        }
     }
 
 }

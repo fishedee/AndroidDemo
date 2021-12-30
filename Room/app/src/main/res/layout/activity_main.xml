@@ -10,4 +10,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Room测试"/>
+    <Button
+        android:id="@+id/liveDataTest2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Room测试带协程"/>
 </LinearLayout>
