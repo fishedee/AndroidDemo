@@ -7,6 +7,8 @@ import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonObject
 import com.google.gson.reflect.TypeToken
+import java.lang.Exception
+import kotlin.properties.Delegates
 
 data class Person(val name:String,val age:Int)
 
@@ -61,6 +63,48 @@ class GsonActivity : AppCompatActivity() {
          */
     }
 
+    data class MyDataNull2(val name:String="fish",val age:Int=123,val address:String="mmk")
+
+    private fun testNullData2(){
+        val data = """
+            {"age":123}
+        """
+        val typeOf = object :TypeToken<MyDataNull2>(){}.type
+        val dataNull = gson.fromJson<MyDataNull2>(data,typeOf)
+        Log.d("nullJson2",dataNull.toString())
+        /*
+        输出结果如下：
+        MyDataNull(name=fish2, age=567, address=null)
+         */
+    }
+
+    data class MyDataNull3(val name:String,val age:Int,val address:String)
+
+    private fun testNullData3(){
+        val data = """
+            {"age":123,"address":"dd"}
+        """
+        val gson = GsonBuilder()
+            .registerTypeAdapterFactory(KotlinAdapterFactory())
+            .serializeNulls()
+            .disableHtmlEscaping()
+            .setDateFormat("yyyy-MM-dd HH:mm:ss")
+            .create()
+        val typeOf = object :TypeToken<MyDataNull3>(){}.type
+        try{
+            val dataNull = gson.fromJson<MyDataNull3>(data,typeOf)
+            Log.d("nullJson3",dataNull.toString())
+        }catch(e:Exception){
+            e.printStackTrace()
+        }
+        /*
+        输出结果如下：
+        com.google.gson.JsonParseException: Field: 'name' in Class 'com.example.myapplication.GsonActivity$MyDataNull3' is marked nonnull but found null value
+            2021-12-31 13:09:25.337 27841-27841/com.example.myapplication W/System.err:     at com.example.myapplication.KotlinAdapter.nullCheck(KotlinAdapter.kt:53)
+            2021-12-31 13:09:25.338 27841-27841/com.example.myapplication W/System.err:     at com.example.myapplication.KotlinAdapter.read(KotlinAdapter.kt:41)
+         */
+    }
+
     private fun testGsonDeseiralize(){
         val data = "[{\"name\":\"Tom\",\"age\":20},{\"name\":\"Jack\",\"age\":25},{\"name\":\"Lily\",\"age\":22}]"
         val typeOf = object: TypeToken<List<Person>>(){}.type
@@ -90,5 +134,7 @@ class GsonActivity : AppCompatActivity() {
         testGsonSerialize()
         testRawJson()
         testNullData()
+        testNullData2()
+        testNullData3()
     }
 }
