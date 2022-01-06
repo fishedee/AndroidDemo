@@ -14,27 +14,16 @@ import androidx.appcompat.widget.AppCompatEditText
 
 class BarCodeEditText(ctx:Context,attrs:AttributeSet) :AppCompatEditText(ctx,attrs){
     private var mBeginning = System.nanoTime()
-    private val ONE_MILLION = 1000000
-    //设置扫描头的一次输入是300ms
-    private val BARCODE_INPUT_INTERVAL = 300
-    private var barCodeListener:((String)->Unit)? = null;
-
-    private var onTextChangeListener:((String)->Unit)? = null
+    private var barCodeListener:((String)->Unit)? = null
 
     fun setOnBarCodeListener(listener:(String)->Unit){
         this.barCodeListener = listener
     }
 
-    fun setOnTextChangeListener(listener:(String)->Unit){
-        this.onTextChangeListener = listener
-    }
-
     init{
         addTextChangedListener(object :TextWatcher{
             override fun afterTextChanged(s: Editable?) {
-                onTextChangeListener?.invoke(s.toString())
             }
-
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
                 if( (s == null || s.isEmpty()) && start == 0 ){
                     mBeginning = System.nanoTime()
@@ -45,30 +34,37 @@ class BarCodeEditText(ctx:Context,attrs:AttributeSet) :AppCompatEditText(ctx,att
             }
         })
         setOnEditorActionListener { v, actionId, event ->
-            val isEnter =
-                event != null && event.keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_DOWN
-            val isInDuration = {
-                val duration = (System.nanoTime()-mBeginning)/ONE_MILLION
-                duration < BARCODE_INPUT_INTERVAL
-            }
-
-            Log.d("barCode","isEnter ${isEnter} isInDuration ${isInDuration()}")
-
-            if( isEnter || actionId == EditorInfo.IME_ACTION_DONE || actionId == EditorInfo.IME_ACTION_SEARCH){
+            if( actionId == EditorInfo.IME_ACTION_DONE || actionId == EditorInfo.IME_ACTION_SEARCH){
                 val inputText = this.text.toString()
-                if( isEnter && isInDuration()){
-                    Toast.makeText(this.context,inputText,Toast.LENGTH_SHORT).show()
-                    barCodeListener?.invoke(inputText)
-                }
-                mBeginning = 0
-                this.setText("")
-                this.hiddenKeyboard()
-                false
+                barCodeListener?.invoke(inputText)
+                setText("")
+                hiddenKeyboard()
+                true
             }else{
                 false
             }
 
         }
+    }
+
+    override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
+        if( keyCode == KeyEvent.KEYCODE_ENTER){
+            return true
+        }
+        return super.onKeyDown(keyCode, event)
+    }
+
+    override fun onKeyUp(keyCode: Int, event: KeyEvent?): Boolean {
+        if( keyCode == KeyEvent.KEYCODE_ENTER ){
+            val inputText = this.text.toString().trim()
+            if( inputText.isNotBlank() ){
+                barCodeListener?.invoke(inputText)
+            }
+            this.setText("")
+            this.hiddenKeyboard()
+            return true
+        }
+        return super.onKeyUp(keyCode, event)
     }
 
     private fun hiddenKeyboard(){

@@ -47,6 +47,7 @@
         android:maxLines="1"
         android:text="imeOptions，需要配置inputType，最好也配置maxLines才能生效"/>
     <com.example.myapplication.BarCodeEditText
+        android:id="@+id/barCode"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:background="@drawable/border"
@@ -54,61 +55,12 @@
         android:inputType="text"
         android:maxLines="1"
         android:text=""/>
-
-    <LinearLayout
-        android:orientation="vertical"
+    <com.example.myapplication.BarCodeEditText
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:descendantFocusability="beforeDescendants">
-        <com.example.myapplication.BarCodeEditText
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@drawable/border"
-            android:imeOptions="actionDone"
-            android:inputType="text"
-            android:maxLines="1"
-            android:text=""/>
-        <TextView
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:text="before"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:descendantFocusability="afterDescendants">
-        <com.example.myapplication.BarCodeEditText
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@drawable/border"
-            android:imeOptions="actionDone"
-            android:inputType="text"
-            android:maxLines="1"
-            android:text=""/>
-        <TextView
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:text="After"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:descendantFocusability="blocksDescendants">
-        <com.example.myapplication.BarCodeEditText
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@drawable/border"
-            android:imeOptions="actionDone"
-            android:inputType="text"
-            android:maxLines="1"
-            android:text=""/>
-        <TextView
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:text="block"/>
-    </LinearLayout>
+        android:layout_height="40dp"
+        android:background="@drawable/border"
+        android:imeOptions="actionSearch"
+        android:inputType="text"
+        android:maxLines="1"
+        android:text=""/>
 </LinearLayout>
