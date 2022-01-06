@@ -25,6 +25,12 @@ class SimpleData<T>{
     }
 }
 
+//函数参数接受任意的泛型类型
+fun printAllSimpleData(data:SimpleData<*>){
+    val re = data.get()
+    println("re ${re}")
+}
+
 fun BasicGenericTest_Go(){
     printTemp("123Hello")
     printTemp(78)
@@ -42,4 +48,8 @@ fun BasicGenericTest_Go(){
     println("data2 ${data2.get()}")
     //这里会报错，因为类型不匹配
     //data2.set(123)
+
+    //可以传入不同的泛型参数
+    printAllSimpleData(data1)
+    printAllSimpleData(data2)
 }

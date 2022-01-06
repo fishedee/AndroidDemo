@@ -6,5 +6,6 @@ fun main(){
     //ConditionTest_Go()
     //LoopTest_Go()
     //OptionTest_Go()
-    LateInitTest_Go()
+    //LateInitTest_Go()
+    EnumTest_Go()
 }
