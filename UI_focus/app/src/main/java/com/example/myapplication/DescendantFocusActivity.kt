@@ -35,22 +35,5 @@ class DescendantFocusActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_descendant_focus)
-
-        todoList1 = initTodoList()
-        todoList2 = initTodoList()
-        todoList3 = initTodoList()
-        val todoAdapterList = listOf(
-            TodoAdapter(this,R.layout.widget_list_view,todoList1),
-            TodoAdapter(this,R.layout.widget_list_view2,todoList2),
-            TodoAdapter(this,R.layout.widget_list_view3,todoList3)
-        )
-        val listViewList = listOf(
-            listView1,
-            listView2,
-            listView3
-        )
-        for( i in listViewList.indices ){
-            initList(listViewList[i],todoAdapterList[i])
-        }
     }
 }
