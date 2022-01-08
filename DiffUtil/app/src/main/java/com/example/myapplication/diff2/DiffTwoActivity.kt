@@ -11,6 +11,7 @@ import com.example.myapplication.databinding.ActivityDiffTwoBinding
 import com.example.myapplication.databinding.ActivityNormalBinding
 import com.example.myapplication.normal.NormalViewModel
 import com.example.myapplication.normal.TodoAdapter
+import com.example.myapplication.normal.parcelCopy
 import kotlinx.coroutines.flow.collect
 
 class DiffTwoActivity : AppCompatActivity() {
@@ -23,10 +24,10 @@ class DiffTwoActivity : AppCompatActivity() {
         lifecycleScope.launchWhenStarted {
             viewModel.listEffect.collect { v->
                 //注意，仍然需要进行深拷贝操作
-                val newData = v.data.map { v->v.copy() }
-                adapter.submitList(newData,{
-                    v.effect(viewBinding.showList,adapter)
-                })
+                val newData = parcelCopy(v.data)
+                adapter.submitList(newData) {
+                    v.effect(viewBinding.showList, adapter)
+                }
 
             }
         }
@@ -45,7 +46,7 @@ class DiffTwoActivity : AppCompatActivity() {
 
         //初始化ui
         adapter = TodoDiffAdapter()
-        adapter.submitList(initData.map { v->v.copy() })
+        adapter.submitList(parcelCopy(initData))
         adapter.modListener = {v->
             lifecycleScope.launchWhenStarted {
                 viewModel.mod(v.id,"测试")
