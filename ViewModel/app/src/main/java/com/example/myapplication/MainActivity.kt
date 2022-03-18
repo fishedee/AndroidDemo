@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.lifecycle.ViewModelProvider
 import com.example.myapplication.new_recommend.ViewModelActivity4
+import com.example.myapplication.new_recommend2.ViewModelActivity5
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -30,6 +31,11 @@ class MainActivity : AppCompatActivity() {
 
         viewModel4.setOnClickListener {
             var intent = Intent(this,ViewModelActivity4::class.java)
+            startActivity(intent)
+        }
+
+        viewModel5.setOnClickListener {
+            var intent = Intent(this,ViewModelActivity5::class.java)
             startActivity(intent)
         }
     }

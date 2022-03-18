@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity
+            android:name=".new_recommend2.EmptyActivity5"
+            android:exported="false" />
+        <activity
+            android:name=".new_recommend2.ViewModelActivity5"
+            android:exported="false" />
+        <activity
             android:name=".new_recommend.ViewModelActivity4"
             android:exported="false" />
         <activity

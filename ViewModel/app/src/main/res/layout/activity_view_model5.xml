@@ -2,32 +2,41 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <Button
-        android:id="@+id/viewModel1"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".new_recommend2.ViewModelActivity5">
+
+
+    <TextView
+        android:id="@+id/five_show_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="ViewModel测试，无参数"/>
-    <Button
-        android:id="@+id/viewModel2"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/five_show_text2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="ViewModel测试，有参数"/>
+        android:gravity="center"/>
+
     <Button
-        android:id="@+id/viewModel3"
+        android:id="@+id/five_auto_add"
+        android:textAllCaps="false"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="ViewModel测试，带协程"/>
+        android:text="launchWhenStarted的方式启动自动递增"/>
+
     <Button
-        android:id="@+id/viewModel4"
+        android:id="@+id/five_auto_add2"
+        android:textAllCaps="false"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="ViewModel测试，官方实践"/>
+        android:text="launch的方式启动自动递增"/>
     <Button
-        android:id="@+id/viewModel5"
+        android:id="@+id/five_next_page"
+        android:textAllCaps="false"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="ViewModel测试，LifecycleScope测试"/>
+        android:text="启动一个Activity"/>
 </LinearLayout>
